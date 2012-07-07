@@ -9,7 +9,7 @@ function funhash(id){
 	var key = document.getElementById('key').value;
 	var salt = document.getElementById('salt').value;
 	var hasharea = document.getElementById('hasharea');
-	if(salt != ''){
+	if(key != ''){
 		
 		hasharea.innerHTML = '<img src="loader.gif"/>';
 			try{
