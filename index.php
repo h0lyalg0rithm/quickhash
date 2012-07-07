@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Hash Generator</title>
+<script type="text/javascript">
+function funhash(id){
+	var ajaxRequest;
+	var key = document.getElementById('key').value;
+	var salt = document.getElementById('salt').value;
+	var hasharea = document.getElementById('hasharea');
+	hasharea.innerHTML = '<img src="loader.gif"/>';
+		try{
+			// Opera 8.0+, Firefox, Safari
+			ajaxRequest = new XMLHttpRequest();
+		} catch (e){
+			// Internet Explorer Browsers
+			try{
+				ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+			} catch (e) {
+				try{
+					ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+				} catch (e){
+					// Something went wrong
+					alert("Your browser broke!");
+					return false;
+				}
+			}
+		}
+	ajaxRequest.open('GET','hash.php?id='+id+'&key='+key+'&salt='+salt,true);
+	ajaxRequest.send(null);
+	
+	ajaxRequest.onreadystatechange = function(){
+		if(ajaxRequest.readyState ==4){
+			hasharea.innerHTML = ajaxRequest.responseText;
+		}
+		else{
+			hasharea.innerHTML = 'Cant carry the request'; 
+		}
+	}
+}
+</script>
+</head>
+<body>
+    <label for="key">Key : </label><input type="text" id="key" placeholder="Enter the key here"/>
+    <label for="salt">Salt : </label><input type="text" id="salt" placeholder="Enter the salt here"/>
+    <div id="functions">
+    <?php
+	$hash_alg = hash_algos();
+	foreach($hash_alg as $hash_no=>$hash){
+		echo '<input type="button" value="'.$hash.'" onclick="funhash('.$hash_no.')">';
+		if($hash_no%6 == 0 && $hash_no!==0)
+			echo '<br>';
+	}
+    ?>
+    </div>
+    <div id="hasharea">
+    </div>
+</body>
+</html>
