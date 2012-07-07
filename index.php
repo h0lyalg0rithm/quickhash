@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Hash Generator</title>
+<title>Quick Hash Generator</title>
 <script type="text/javascript">
 function funhash(id){
 	var ajaxRequest;
@@ -32,7 +32,7 @@ function funhash(id){
 	
 	ajaxRequest.onreadystatechange = function(){
 		if(ajaxRequest.readyState ==4){
-			hasharea.innerHTML = ajaxRequest.responseText;
+			hasharea.innerHTML = ajaxRequest.responseText+'<img src="tick.png"/>';
 		}
 		else{
 			hasharea.innerHTML = 'Cant carry the request'; 
@@ -40,21 +40,23 @@ function funhash(id){
 	}
 }
 </script>
+<link href="styles/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <label for="key">Key : </label><input type="text" id="key" placeholder="Enter the key here"/>
-    <label for="salt">Salt : </label><input type="text" id="salt" placeholder="Enter the salt here"/>
+  <div class="container">
+  	<div class="input">
+        <span><label for="key">Key</label><input type="text" id="key" placeholder="Enter the key here"/></span>
+        <span><label for="salt">Salt</label><input type="text" id="salt" placeholder="Enter the salt here"/></span>
+    </div>
+    <div id="hasharea"></div>
     <div id="functions">
     <?php
 	$hash_alg = hash_algos();
 	foreach($hash_alg as $hash_no=>$hash){
-		echo '<input type="button" value="'.$hash.'" onclick="funhash('.$hash_no.')">';
-		if($hash_no%6 == 0 && $hash_no!==0)
-			echo '<br>';
+		echo '<input type="button" value="'.$hash.'" onclick="funhash('.$hash_no.')" class="buttons">';
 	}
     ?>
     </div>
-    <div id="hasharea">
-    </div>
+  </div>  
 </body>
 </html>
