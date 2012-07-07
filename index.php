@@ -51,8 +51,8 @@ function funhash(id){
 <body>
   <div class="container">
   	<div class="input">
+    	<span><label for="key">Pass</label><input type="text" id="key" placeholder="Enter the passcode here"/></span>
         <span><label for="salt">Salt</label><input type="text" id="salt" placeholder="Enter the salt here"/></span>
-        <span><label for="key">Key</label><input type="text" id="key" placeholder="Enter the key here"/></span>
     </div>
     <div id="hasharea"></div>
     <div id="functions">
