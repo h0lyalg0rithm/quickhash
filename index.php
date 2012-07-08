@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta property="og:title" content="Quick Hash Generator"/>
 <meta property="og:type" content="website"/>
-<meta property="og:image" content="http://quickhash.website.org/icon.jpg/"/> 
+<meta property="og:image" content="http://quickhash.website.org/icon.jpg"/> 
 <meta property="og:url" content="http://quickhash.website.org/"/> 
 <meta property="og:site_name" content="QuickHash"/>
 <meta property="fb:admins" content="100001340690610"/>
@@ -12,15 +12,6 @@
   
 <title>Quick Hash Generator</title>
 <script type="text/javascript">
- var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-28208925-3']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
 function funhash(id){
 	var ajaxRequest;
 	var key = document.getElementById('key').value;
@@ -64,6 +55,20 @@ function funhash(id){
 }
 </script>
 <link href="styles/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28208925-3']);
+  _gaq.push(['_setDomainName', 'website.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </head>
 <body>
   <div class="container">
